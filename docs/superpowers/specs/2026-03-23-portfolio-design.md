@@ -9,7 +9,7 @@ Single-page personal portfolio for Momin Alvi. Audience: recruiters and engineer
 
 ## Tech Stack
 
-- Next.js 16 (App Router)
+- Next.js 16.2.1 (App Router)
 - TypeScript
 - Tailwind CSS v4 (`@tailwindcss/postcss`, `@import "tailwindcss"` syntax)
 - Geist Sans (loaded via `next/font/google`)
@@ -65,7 +65,7 @@ Each component is self-contained with no shared state. `page.tsx` is a simple st
 - Left: "Momin Alvi" in normal weight (not bold — acts as a wordmark, not a shout)
 - Right: text links — Experience · Featured Work · About · Contact
 - `href="#experience"` etc. for smooth scroll anchors
-- Mobile: links collapse or stack (hamburger not required — links are short enough to fit on one line at small sizes with reduced font)
+- Mobile: reduce font size on small screens; if links overflow on very narrow viewports (< 380px), stack them vertically. No hamburger required.
 
 ### Hero
 - Full viewport height (`min-h-screen`) centered content
@@ -94,13 +94,12 @@ Each component is self-contained with no shared state. `page.tsx` is a simple st
 - Left column: label "Case Study 01", title "ScholarPups", description, tech tags (plain text dots `·`), link
 - Right column: placeholder image area — a bordered `div` with muted text "Project screenshot" — easy to swap
 - Tech tags: `Python · FastAPI · PostgreSQL · Redis` — small, muted, no pill styling
-- Link: "View Project Documentation →" as a plain styled `<a>`
+- Link: "View Project Documentation →" as a plain styled `<a>` pointing to `https://github.com/connor-leung/scholar-pups`
 
 ### About
 - `id="about"` anchor
-- Two-column on desktop (`md:grid-cols-2`), single column on mobile
-- Short paragraph of copy (from spec)
-- Left column is the text; right column can be empty or a subtle visual element (TBD — start empty)
+- Single column layout
+- Copy: "I'm a developer who learns best by building. My focus is on gaining real experience through internships and projects, constantly refining my skills and working toward steady, intentional improvement in every line of code."
 
 ### Core Competencies
 - `id="competencies"` anchor (not in nav — nav goes to About)
@@ -119,7 +118,7 @@ Each component is self-contained with no shared state. `page.tsx` is a simple st
 - Email uses `mailto:`, GitHub and LinkedIn use real URLs
 
 ### Footer
-- Minimal single row: "Momin Alvi" · © 2025 · Email · GitHub · LinkedIn
+- Minimal single row: "Momin Alvi" · © 2026 · Email · GitHub · LinkedIn
 - `text-neutral-500`, small font size
 - Border top
 
