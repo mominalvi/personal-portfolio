@@ -22,16 +22,16 @@ export default function ThemeToggle() {
     }
   };
 
-  if (!mounted) return <div className="w-5 h-5" />;
+  if (!mounted) return <div className="w-8 h-8" />;
 
   return (
     <button
       onClick={toggle}
       aria-label="Toggle dark mode"
-      className="text-on-surface-variant hover:text-primary transition-colors duration-200"
+      className="flex items-center justify-center w-8 h-8 text-on-surface-variant hover:text-primary transition-colors duration-200"
     >
       <span
-        className="material-symbols-outlined"
+        className="material-symbols-outlined leading-none"
         style={{ fontSize: "20px", fontVariationSettings: "'FILL' 0" }}
       >
         {dark ? "light_mode" : "dark_mode"}

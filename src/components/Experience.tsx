@@ -4,28 +4,24 @@ const roles = [
     title: "Software Engineering Intern",
     location: "Toronto, ON",
     period: "May 2025 — Present",
-    current: true,
   },
   {
     org: "Kaniq",
     title: "AI Systems Developer",
     location: "Remote",
     period: "Mar 2026 — Present",
-    current: true,
   },
   {
     org: "Queen's COMPSA",
     title: "Backend Developer",
     location: "Kingston, ON",
     period: "Aug 2024 — Dec 2024",
-    current: false,
   },
   {
     org: "DDQIC",
     title: "Entrepreneur in Residence",
     location: "Kingston, ON",
     period: "May 2024 — Aug 2024",
-    current: false,
   },
 ];
 
@@ -42,7 +38,7 @@ export default function Experience() {
           01 // Index
         </span>
       </div>
-      <div className="flex flex-col border-architectural bg-surface-container-lowest shadow-sm">
+      <div className="flex flex-col border-architectural bg-surface-container-lowest">
         {roles.map((role) => (
           <div
             key={`${role.org}-${role.title}`}
@@ -53,13 +49,8 @@ export default function Experience() {
                 {role.org}
               </span>
               <span className="text-sm text-on-surface-variant">{role.title}</span>
-              {role.current && (
-                <span className="px-sm py-xs bg-secondary/10 text-secondary font-meta-technical text-[10px] uppercase tracking-wider">
-                  Current
-                </span>
-              )}
             </div>
-            <div className="font-meta-technical text-meta-technical text-outline mt-sm md:mt-0 md:text-right">
+            <div className="font-meta-technical text-meta-technical text-outline mt-sm md:mt-0 md:text-right shrink-0">
               {role.location} • {role.period}
             </div>
           </div>
