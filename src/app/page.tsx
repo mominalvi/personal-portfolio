@@ -4,6 +4,8 @@ import Experience from "@/components/Experience";
 import Projects from "@/components/Projects";
 import IndexModule from "@/components/IndexModule";
 import Awards from "@/components/Awards";
+import Skills from "@/components/Skills";
+import GitHubActivity from "@/components/GitHubActivity";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -24,6 +26,12 @@ export default function Home() {
           </div>
           <div className="md:col-span-4 md:col-start-9 md:row-start-2">
             <Awards />
+          </div>
+          <div className="md:col-span-12 md:col-start-1 md:row-start-3">
+            <Skills />
+          </div>
+          <div className="md:col-span-12 md:col-start-1 md:row-start-4">
+            <GitHubActivity />
           </div>
         </div>
       </main>

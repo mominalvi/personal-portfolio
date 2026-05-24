@@ -116,6 +116,11 @@
 /* Architectural border color — switches in dark mode */
 :root {
   --arch-border-color: #111111;
+  --contrib-0: #ededed;
+  --contrib-1: #c8c8c8;
+  --contrib-2: #999999;
+  --contrib-3: #555555;
+  --contrib-4: #111111;
 }
 
 .dark {
@@ -154,6 +159,12 @@
   --color-outline: #686868;
   --color-outline-variant: #2e2e2e;
   --arch-border-color: #424242;
+
+  --contrib-0: #1f1f1f;
+  --contrib-1: #333333;
+  --contrib-2: #555555;
+  --contrib-3: #888888;
+  --contrib-4: #e8e8e8;
 }
 
 .border-architectural {
