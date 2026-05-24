@@ -1,23 +1,10 @@
-function generateGrid(): number[][] {
-  return Array.from({ length: 53 }, (_, w) =>
-    Array.from({ length: 7 }, (_, d) => {
-      const h = (((w + 1) * 2654435761 + (d + 1) * 40503) >>> 0) % 100;
-      const isWeekend = d === 0 || d === 6;
-      if (isWeekend) return h < 60 ? 0 : h < 78 ? 1 : h < 90 ? 2 : 3;
-      return h < 12 ? 0 : h < 38 ? 1 : h < 63 ? 2 : h < 82 ? 3 : 4 + (h % 5);
-    })
-  );
-}
+import { fetchContributions, countToLevel } from "@/lib/github";
 
-interface GitHubActivityProps {
-  data?: number[][];
-  totalContributions?: number;
-}
+const USERNAME = process.env.GITHUB_USERNAME || "mominalvi";
 
-export default function GitHubActivity({
-  data = generateGrid(),
-  totalContributions = 714,
-}: GitHubActivityProps) {
+export default async function GitHubActivity() {
+  const data = await fetchContributions(USERNAME);
+
   return (
     <section
       className="animate-fade-in-up"
@@ -31,32 +18,38 @@ export default function GitHubActivity({
         </span>
       </div>
       <div className="border-architectural bg-surface-container-lowest p-md">
-        <p className="font-meta-technical text-meta-technical text-on-surface-variant mb-md">
-          {totalContributions} contributions in the last year
-        </p>
-        <div className="overflow-x-auto">
-          <div
-            className="grid gap-[3px]"
-            style={{
-              gridTemplateColumns: `repeat(53, minmax(0, 1fr))`,
-              width: "max-content",
-            }}
-          >
-            {data.map((week, w) => (
-              <div key={w} className="flex flex-col gap-[3px]">
-                {week.map((level, d) => (
-                  <div
-                    key={d}
-                    className="w-[10px] h-[10px]"
-                    style={{
-                      backgroundColor: `var(--contrib-${Math.min(level, 4)})`,
-                    }}
-                  />
+        {!data ? (
+          <p className="font-meta-technical text-meta-technical text-on-surface-variant">
+            Add <code>GITHUB_TOKEN</code> to .env.local to display contributions.
+          </p>
+        ) : (
+          <>
+            <p className="font-meta-technical text-meta-technical text-on-surface-variant mb-md">
+              {data.totalContributions} contributions in the last year
+            </p>
+            <div className="overflow-x-auto">
+              <div
+                className="flex gap-[3px]"
+                style={{ width: "max-content" }}
+              >
+                {data.weeks.map((week, w) => (
+                  <div key={w} className="flex flex-col gap-[3px]">
+                    {week.contributionDays.map((day, d) => (
+                      <div
+                        key={d}
+                        className="w-[10px] h-[10px]"
+                        title={`${day.date}: ${day.contributionCount}`}
+                        style={{
+                          backgroundColor: `var(--contrib-${countToLevel(day.contributionCount)})`,
+                        }}
+                      />
+                    ))}
+                  </div>
                 ))}
               </div>
-            ))}
-          </div>
-        </div>
+            </div>
+          </>
+        )}
       </div>
     </section>
   );
