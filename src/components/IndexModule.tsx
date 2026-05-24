@@ -1,8 +1,10 @@
 const items = [
-  { label: "Training Regimen", icon: "fitness_center" },
-  { label: "Music Curation", icon: "headphones" },
-  { label: "Product Tear-downs", icon: "architecture" },
-  { label: "Lab / Experiments", icon: "science" },
+  { label: "Gym / Bodybuilding", icon: "fitness_center" },
+  { label: "Soccer", icon: "sports_soccer" },
+  { label: "Basketball", icon: "sports_basketball" },
+  { label: "Running", icon: "directions_run" },
+  { label: "Photography", icon: "photo_camera" },
+  { label: "Food", icon: "restaurant" },
 ];
 
 export default function IndexModule() {
@@ -21,7 +23,7 @@ export default function IndexModule() {
         {items.map((item, i) => (
           <div
             key={item.label}
-            className={`group flex items-center justify-between p-md hover:bg-surface-container transition-all duration-300 cursor-pointer ${
+            className={`group flex items-center justify-between p-md hover:bg-surface-container transition-all duration-300 cursor-default ${
               i < items.length - 1 ? "border-b border-outline-variant" : ""
             }`}
           >

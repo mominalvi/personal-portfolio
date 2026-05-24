@@ -1,13 +1,18 @@
 const awards = [
   {
-    title: "Principal's Scholarship",
+    title: "Queen's University Excellence Scholarship",
     org: "Queen's University",
     year: "2022",
   },
   {
     title: "Dean's Honour List",
     org: "Queen's University",
-    year: "2023–2024",
+    year: "2022–Present",
+  },
+  {
+    title: "1st Place, QDAA × AWS DeepRacer Hackathon",
+    org: "Amazon DeepRacer / Queen's University",
+    year: "Mar 2023",
   },
 ];
 

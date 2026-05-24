@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <>
       <Nav />
-      <main className="pt-[100px] px-lg md:px-xxl max-w-container-max mx-auto pb-xxl flex-grow">
+      <main className="pt-[100px] px-lg md:px-xl max-w-container-max mx-auto pb-xxl flex-grow">
         <Hero />
         <div className="grid grid-cols-1 md:grid-cols-12 gap-x-gutter gap-y-xl md:gap-y-xxl">
           <div className="md:col-span-8 md:col-start-1 md:row-start-1">
