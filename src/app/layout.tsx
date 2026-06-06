@@ -22,9 +22,25 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Momin Alvi",
+  metadataBase: new URL("https://mominalvi.com"),
+  title: "Momin Alvi — Software Engineer",
   description:
     "CS student at Queen's and Software Engineering Intern at OTPP. Builder of AI systems, product tools, and clean web experiences.",
+  icons: { icon: "/favicon.svg" },
+  openGraph: {
+    title: "Momin Alvi — Software Engineer",
+    description:
+      "Builder of AI systems, product tools, and clean web experiences.",
+    url: "https://mominalvi.com",
+    siteName: "Momin Alvi",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Momin Alvi — Software Engineer",
+    description:
+      "Builder of AI systems, product tools, and clean web experiences.",
+  },
 };
 
 export default function RootLayout({
