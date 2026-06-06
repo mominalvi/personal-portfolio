@@ -265,7 +265,7 @@
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background: linear-gradient(110deg, transparent 38%, rgba(255, 255, 255, 0.10) 50%, transparent 62%);
+  background: linear-gradient(110deg, transparent 38%, rgba(109, 92, 255, 0.16) 50%, transparent 62%);
   background-size: 200% 100%;
   animation: shimmer-sweep 3.4s linear infinite;
 }
