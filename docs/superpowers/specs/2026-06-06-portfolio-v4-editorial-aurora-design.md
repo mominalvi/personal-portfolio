@@ -72,12 +72,12 @@ Order top to bottom:
 
 These are not design decisions; build proceeds with placeholders until provided:
 
-- LinkedIn profile URL.
-- GitHub: `github.com/mominalvi` (confirmed) — confirm final.
-- Coursify.ca: live URL and/or repo.
-- Scholar Pups: live URL and/or repo.
-- Resume: PDF to drop in `/public`, or external link.
-- Beyond Code: which hobbies beyond training (if any), kept factual.
+- LinkedIn profile URL — **`https://www.linkedin.com/in/momin-alvi/`** (provided).
+- GitHub: `github.com/mominalvi` (confirmed).
+- Coursify.ca: live URL and/or repo — TBD.
+- Scholar Pups: live URL and/or repo — TBD.
+- Resume: **deferred by user** — wire as a placeholder/disabled link for now, swap in PDF later.
+- Beyond Code: which hobbies beyond training (if any), kept factual — TBD.
 
 ## Constraints & Non-Goals
 
