@@ -21,6 +21,7 @@ export default function Hero() {
         <RotatingText
           words={[
             "AI systems",
+            "full-stack products",
             "backend services",
             "data pipelines",
             "RAG applications",
