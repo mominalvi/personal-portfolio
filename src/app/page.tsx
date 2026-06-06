@@ -18,7 +18,7 @@ export default function Home() {
       <main className="relative z-10 pt-xl md:pt-xxl px-lg md:px-xl max-w-container-max mx-auto pb-xxl flex-grow">
         <Hero />
         <div className="grid grid-cols-1 md:grid-cols-12 gap-x-gutter gap-y-xl md:gap-y-xxl">
-          <div className="md:col-span-12 md:col-start-1 md:row-start-1">
+          <div className="md:col-span-8 md:col-start-1 md:row-start-1">
             <Reveal>
               <Experience />
             </Reveal>
@@ -28,19 +28,19 @@ export default function Home() {
               <Projects />
             </Reveal>
           </div>
-          <div className="md:col-span-4 md:col-start-9 md:row-start-2">
+          <div className="md:col-span-4 md:col-start-9 md:row-start-1">
             <Reveal delay={0.1}>
               <IndexModule />
             </Reveal>
           </div>
-          <div className="md:col-span-8 md:col-start-1 md:row-start-3">
-            <Reveal>
-              <Skills />
+          <div className="md:col-span-4 md:col-start-9 md:row-start-2">
+            <Reveal delay={0.15}>
+              <Awards />
             </Reveal>
           </div>
-          <div className="md:col-span-4 md:col-start-9 md:row-start-3">
-            <Reveal delay={0.1}>
-              <Awards />
+          <div className="md:col-span-12 md:col-start-1 md:row-start-3">
+            <Reveal>
+              <Skills />
             </Reveal>
           </div>
           <div className="md:col-span-12 md:col-start-1 md:row-start-4">
