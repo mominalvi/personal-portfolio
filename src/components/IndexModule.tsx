@@ -14,9 +14,9 @@ export default function IndexModule() {
       style={{ animationDelay: "450ms" }}
     >
       <div className="flex justify-between items-end border-b-architectural pb-sm mb-md">
-        <h2 className="font-h3 text-h3 text-primary">Index</h2>
+        <h2 className="font-h3 text-h3 text-primary">Beyond Code</h2>
         <span className="font-meta-technical text-meta-technical text-on-surface-variant">
-          03 // Beyond
+          05 // Beyond
         </span>
       </div>
       <div className="flex flex-col border-architectural bg-surface-container-lowest shadow-sm">
@@ -30,7 +30,7 @@ export default function IndexModule() {
             <span className="font-body-md text-body-md text-primary group-hover:translate-x-1 transition-transform">
               {item.label}
             </span>
-            <span className="material-symbols-outlined text-[16px] text-outline group-hover:text-secondary transition-colors">
+            <span className="material-symbols-outlined text-[16px] text-outline group-hover:text-[color:var(--accent)] transition-colors">
               {item.icon}
             </span>
           </div>
