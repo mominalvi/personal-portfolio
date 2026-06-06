@@ -33,12 +33,21 @@ export const metadata: Metadata = {
     url: "https://mominalvi.com",
     siteName: "Momin Alvi",
     type: "website",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Misty river flowing through a lush green forest",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Momin Alvi — Software Engineer",
     description:
       "Builder of AI systems, product tools, and clean web experiences.",
+    images: ["/og-image.jpg"],
   },
 };
 
