@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Space_Grotesk, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
+import AuroraBackground from "@/components/AuroraBackground";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -21,9 +22,25 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Momin Alvi",
+  metadataBase: new URL("https://mominalvi.com"),
+  title: "Momin Alvi — Software Engineer",
   description:
     "CS student at Queen's and Software Engineering Intern at OTPP. Builder of AI systems, product tools, and clean web experiences.",
+  icons: { icon: "/favicon.svg" },
+  openGraph: {
+    title: "Momin Alvi — Software Engineer",
+    description:
+      "Builder of AI systems, product tools, and clean web experiences.",
+    url: "https://mominalvi.com",
+    siteName: "Momin Alvi",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Momin Alvi — Software Engineer",
+    description:
+      "Builder of AI systems, product tools, and clean web experiences.",
+  },
 };
 
 export default function RootLayout({
@@ -50,6 +67,7 @@ export default function RootLayout({
         />
       </head>
       <body className="bg-bone text-primary antialiased font-body-md min-h-screen flex flex-col">
+        <AuroraBackground />
         {children}
       </body>
     </html>

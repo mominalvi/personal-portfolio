@@ -25,18 +25,18 @@ export default function Awards() {
       <div className="flex justify-between items-end border-b-architectural pb-sm mb-md">
         <h2 className="font-h3 text-h3 text-primary">Awards</h2>
         <span className="font-meta-technical text-meta-technical text-on-surface-variant">
-          04 // Awards
+          06 // Awards
         </span>
       </div>
       <div className="flex flex-col gap-sm">
         {awards.map((award, i) => (
           <div
             key={award.title}
-            className={`flex flex-col pb-xs ${
+            className={`group flex flex-col pb-xs ${
               i < awards.length - 1 ? "border-b border-outline-variant" : ""
             }`}
           >
-            <span className="font-body-md text-body-md font-bold text-primary">
+            <span className="font-body-md text-body-md font-bold text-primary group-hover:text-[color:var(--accent)] transition-colors">
               {award.title}
             </span>
             <span className="font-meta-technical text-meta-technical text-on-surface-variant">

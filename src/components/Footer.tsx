@@ -1,8 +1,8 @@
 const links = [
-  { label: "GitHub", href: "#" },
-  { label: "LinkedIn", href: "#" },
-  { label: "Email", href: "mailto:mominalvi30@gmail.com" },
-  { label: "Resume", href: "#" },
+  { label: "GitHub", href: "https://github.com/mominalvi" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/momin-alvi/" },
+  { label: "Email", href: "mailto:momin.alvi@queensu.ca" },
+  { label: "Resume", href: "/resume.pdf" },
 ];
 
 export default function Footer() {
@@ -10,7 +10,7 @@ export default function Footer() {
     <footer className="w-full border-t border-outline-variant mt-auto bg-background" id="contact">
       <div className="max-w-container-max mx-auto px-lg md:px-xl py-xl flex flex-col md:flex-row justify-between items-center">
         <div className="font-label-caps text-label-caps text-primary mb-md md:mb-0">
-          © 2026 Momin Alvi. Built for high-density clarity.
+          © 2026 Momin Alvi
         </div>
         <div className="flex gap-lg">
           {links.map((link) => (
@@ -18,8 +18,16 @@ export default function Footer() {
               key={link.label}
               className="magnetic-link font-body-md text-body-md text-on-surface-variant hover:text-primary underline"
               href={link.href}
-              target={link.href.startsWith("http") ? "_blank" : undefined}
-              rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
+              target={
+                link.href.startsWith("http") || link.href.endsWith(".pdf")
+                  ? "_blank"
+                  : undefined
+              }
+              rel={
+                link.href.startsWith("http") || link.href.endsWith(".pdf")
+                  ? "noopener noreferrer"
+                  : undefined
+              }
             >
               {link.label}
             </a>

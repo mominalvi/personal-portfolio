@@ -1,89 +1,183 @@
-const projects = [
+import RepoMenu from "@/components/RepoMenu";
+
+const featured = {
+  title: "Coursify.ca",
+  description:
+    "A course insights platform for Queen's University, with data scraped from Reddit & RateMyProfessors and a RAG-powered AI assistant.",
+  highlights: [
+    "Aggregates course and professor data scraped from Reddit and RateMyProfessors.",
+    "RAG-powered AI assistant answers student questions about courses and profs.",
+    "Search, filters, and a student-facing course discovery UI.",
+  ],
+  tags: ["Next.js", "TypeScript", "Supabase", "PostgreSQL"],
+  href: "https://www.coursify.ca/",
+  repos: [
+    { label: "Web App", href: "https://github.com/amaanjaved1/Coursify-WebApp" },
+    { label: "RAG", href: "https://github.com/amaanjaved1/Coursify-RAG" },
+    {
+      label: "Web Scrapers",
+      href: "https://github.com/amaanjaved1/Coursify-Scrapers",
+    },
+  ],
+};
+
+const secondary: {
+  title: string;
+  description: string;
+  tags: string[];
+  href?: string;
+}[] = [
   {
     title: "Scholar Pups",
-    description: "AI scholarship discovery and feedback platform for underrepresented students.",
-    highlights: [
-      "Built scholarship matching and application feedback workflows.",
-      "Used AI to review student responses and provide actionable suggestions.",
-      "Developed a full-stack platform with FastAPI, React, and MongoDB.",
-    ],
-    tags: ["React", "Python", "FastAPI", "MongoDB"],
-    href: "#",
-  },
-  {
-    title: "Coursify.ca",
-    description: "Course review and planning platform for Queen's students.",
-    highlights: [
-      "Built course search and review workflows for Queen's course discovery.",
-      "Designed Plan Courses flow for saving offerings and future schedule generation.",
-      "Integrated course registry data, filters, and student-facing UI.",
-    ],
-    tags: ["Next.js", "TypeScript", "Supabase", "PostgreSQL"],
-    href: "#",
+    description:
+      "AI scholarship discovery and feedback platform for underrepresented students.",
+    tags: ["FastAPI", "Next.js", "MongoDB", "LangChain"],
+    href: "https://github.com/connor-leung/scholar-pups",
   },
 ];
 
+const GITHUB = "https://github.com/mominalvi";
+
 export default function Projects() {
   return (
-    <section
-      className="animate-fade-in-up"
-      id="projects"
-      style={{ animationDelay: "300ms" }}
-    >
+    <section className="animate-fade-in-up" id="projects">
       <div className="flex justify-between items-end border-b-architectural pb-sm mb-md">
-        <h2 className="font-h3 text-h3 text-primary">Selected Projects</h2>
+        <h2 className="font-h3 text-h3 text-primary">Projects</h2>
         <span className="font-meta-technical text-meta-technical text-on-surface-variant">
-          02 // Works
+          02 // Projects
         </span>
       </div>
-      <div className="flex flex-col border-architectural bg-surface-container-lowest">
-        {projects.map((project, i) => (
-          <a
-            key={project.title}
-            href={project.href}
-            className={`group block p-md hover:bg-surface-container transition-all duration-200 ${
-              i < projects.length - 1 ? "border-b border-outline-variant" : ""
-            }`}
-          >
-            {/* Header row */}
-            <div className="flex justify-between items-start mb-sm gap-md">
-              <h3 className="font-body-md text-body-md font-bold text-primary group-hover:text-secondary transition-colors shrink-0">
-                {project.title}
-              </h3>
-              <div className="flex items-center gap-xs flex-wrap justify-end">
-                {project.tags.map((tag) => (
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-md">
+        {/* Featured — spans two rows */}
+        <div
+          className="shimmer relative border-architectural p-lg md:row-span-2 flex flex-col"
+          style={{
+            background:
+              "linear-gradient(150deg, rgba(109,92,255,0.12), rgba(168,85,247,0.06))",
+          }}
+        >
+          <span className="font-meta-technical text-[11px] text-on-surface-variant">
+            Featured
+          </span>
+          <h3 className="font-h3 text-h3 text-primary mt-sm mb-sm">
+            {featured.title}
+          </h3>
+          <p className="font-body-md text-body-md text-on-surface-variant mb-md">
+            {featured.description}
+          </p>
+          <ul className="flex flex-col gap-xs mb-md">
+            {featured.highlights.map((h) => (
+              <li
+                key={h}
+                className="flex items-start gap-sm font-meta-technical text-meta-technical text-on-surface-variant"
+              >
+                <span className="text-[color:var(--accent)] mt-[2px] shrink-0">—</span>
+                <span>{h}</span>
+              </li>
+            ))}
+          </ul>
+          <div className="flex gap-xs flex-wrap mb-lg">
+            {featured.tags.map((t) => (
+              <span
+                key={t}
+                className="bg-surface-container px-sm py-xs font-meta-technical text-[10px] text-primary"
+              >
+                {t}
+              </span>
+            ))}
+          </div>
+          <div className="flex gap-sm flex-wrap mt-auto">
+            <a
+              href={featured.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-accent px-md py-sm font-label-caps text-label-caps text-white inline-flex items-center gap-sm"
+            >
+              <span
+                className="material-symbols-outlined"
+                style={{ fontSize: "16px" }}
+              >
+                language
+              </span>
+              Live website
+            </a>
+            <RepoMenu repos={featured.repos} />
+          </div>
+        </div>
+
+        {/* Secondary cards — interactive only when a link exists */}
+        {secondary.map((p) => {
+          const inner = (
+            <>
+              <div className="flex items-center justify-between mb-sm">
+                <h3
+                  className={`font-body-md text-body-md font-bold text-primary transition-colors ${
+                    p.href ? "group-hover:text-[color:var(--accent)]" : ""
+                  }`}
+                >
+                  {p.title}
+                </h3>
+                {p.href && (
+                  <span className="material-symbols-outlined text-[16px] text-outline group-hover:text-[color:var(--accent)] transition-colors">
+                    arrow_forward
+                  </span>
+                )}
+              </div>
+              <p className="font-meta-technical text-meta-technical text-on-surface-variant mb-md">
+                {p.description}
+              </p>
+              <div className="flex gap-xs flex-wrap mt-auto">
+                {p.tags.map((t) => (
                   <span
-                    key={tag}
-                    className="bg-surface-container px-sm py-xs font-meta-technical text-[10px] text-primary shrink-0"
+                    key={t}
+                    className="bg-surface-container px-sm py-xs font-meta-technical text-[10px] text-primary"
                   >
-                    {tag}
+                    {t}
                   </span>
                 ))}
-                <span className="material-symbols-outlined text-[16px] text-outline group-hover:text-secondary transition-colors ml-xs">
-                  arrow_forward
-                </span>
               </div>
+            </>
+          );
+          return p.href ? (
+            <a
+              key={p.title}
+              href={p.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="tile-lift group border-architectural p-md flex flex-col bg-surface-container-lowest"
+            >
+              {inner}
+            </a>
+          ) : (
+            <div
+              key={p.title}
+              className="group border-architectural p-md flex flex-col bg-surface-container-lowest"
+            >
+              {inner}
             </div>
+          );
+        })}
 
-            {/* Description */}
-            <p className="font-meta-technical text-meta-technical text-on-surface-variant mb-sm">
-              {project.description}
-            </p>
-
-            {/* Highlights */}
-            <ul className="flex flex-col gap-xs">
-              {project.highlights.map((point) => (
-                <li
-                  key={point}
-                  className="flex items-start gap-sm font-meta-technical text-meta-technical text-on-surface-variant"
-                >
-                  <span className="text-outline mt-[2px] shrink-0">—</span>
-                  <span>{point}</span>
-                </li>
-              ))}
-            </ul>
-          </a>
-        ))}
+        {/* More on GitHub — fills the grid, sends to profile */}
+        <a
+          href={GITHUB}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="tile-lift group border-architectural p-md flex items-center justify-between bg-surface-container-lowest"
+        >
+          <div className="flex flex-col">
+            <span className="font-body-md text-body-md font-bold text-primary group-hover:text-[color:var(--accent)] transition-colors">
+              More on GitHub
+            </span>
+            <span className="font-meta-technical text-meta-technical text-on-surface-variant">
+              Side projects, experiments &amp; source
+            </span>
+          </div>
+          <span className="material-symbols-outlined text-[20px] text-outline group-hover:text-[color:var(--accent)] transition-colors">
+            open_in_new
+          </span>
+        </a>
       </div>
     </section>
   );

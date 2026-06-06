@@ -1,6 +1,6 @@
 const roles = [
   {
-    org: "Ontario Teachers'",
+    org: "Ontario Teachers' Pension Plan",
     title: "Software Engineering Intern",
     location: "Toronto, ON",
     period: "May 2025 — Present",
@@ -9,7 +9,7 @@ const roles = [
     org: "Kaniq",
     title: "AI Systems Developer",
     location: "Remote",
-    period: "Mar 2026 — Present",
+    period: "Mar 2026 — May 2026",
   },
   {
     org: "Queen's COMPSA",
@@ -35,17 +35,17 @@ export default function Experience() {
       <div className="flex justify-between items-end border-b-architectural pb-sm mb-md">
         <h2 className="font-h3 text-h3 text-primary">Experience</h2>
         <span className="font-meta-technical text-meta-technical text-on-surface-variant">
-          01 // Index
+          01 // Work
         </span>
       </div>
       <div className="flex flex-col border-architectural bg-surface-container-lowest">
         {roles.map((role) => (
           <div
             key={`${role.org}-${role.title}`}
-            className="group flex flex-col md:flex-row md:items-center justify-between p-md border-b border-outline-variant hover:bg-surface-container transition-all duration-200 cursor-default"
+            className="group flex flex-col md:flex-row md:items-center justify-between p-md border-b border-outline-variant border-l-2 border-l-transparent hover:border-l-[color:var(--accent)] hover:bg-surface-container transition-all duration-200 cursor-default"
           >
             <div className="flex items-center gap-md flex-wrap">
-              <span className="text-sm font-bold text-primary group-hover:translate-x-1 transition-transform">
+              <span className="text-sm font-bold text-primary group-hover:text-[color:var(--accent)] group-hover:translate-x-1 transition-all">
                 {role.org}
               </span>
               <span className="text-sm text-on-surface-variant">{role.title}</span>
