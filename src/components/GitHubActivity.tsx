@@ -20,16 +20,16 @@ export default async function GitHubActivity() {
   const data = await fetchContributions(USERNAME);
 
   // Label a week column only when its month differs from the previous column.
-  // Parse the month from the date string (no Date()/timezone shifts).
-  let lastMonth = -1;
-  const columns = (data?.weeks ?? []).map((week, w) => {
-    const ref = week.contributionDays[0]?.date;
-    const month = ref ? parseInt(ref.slice(5, 7), 10) - 1 : -1;
-    let label = "";
-    if (month !== -1 && month !== lastMonth) {
-      label = MONTHS[month];
-      lastMonth = month;
-    }
+  // Parse the month from the date string (no Date()/timezone shifts). Compare to
+  // the previous week (purely functional — no mutable render state).
+  const monthOf = (week?: { contributionDays: { date: string }[] }) => {
+    const ref = week?.contributionDays[0]?.date;
+    return ref ? parseInt(ref.slice(5, 7), 10) - 1 : -1;
+  };
+  const columns = (data?.weeks ?? []).map((week, w, arr) => {
+    const month = monthOf(week);
+    const prevMonth = w > 0 ? monthOf(arr[w - 1]) : -2;
+    const label = month !== -1 && month !== prevMonth ? MONTHS[month] : "";
     return { week, w, label };
   });
   const cutoff = (data?.weeks.length ?? 0) - MOBILE_WEEKS;
