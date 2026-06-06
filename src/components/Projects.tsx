@@ -42,7 +42,7 @@ export default function Projects() {
   return (
     <section className="animate-fade-in-up" id="projects">
       <div className="flex justify-between items-end border-b-architectural pb-sm mb-md">
-        <h2 className="font-h3 text-h3 text-primary">Selected Projects</h2>
+        <h2 className="font-h3 text-h3 text-primary">Projects</h2>
         <span className="font-meta-technical text-meta-technical text-on-surface-variant">
           02 // Projects
         </span>
