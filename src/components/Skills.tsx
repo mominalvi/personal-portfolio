@@ -1,22 +1,43 @@
-import Marquee from "@/components/motion/Marquee";
-
-const skills = [
-  "Python", "TypeScript", "JavaScript", "Java", "C", "SQL",
-  "React", "Next.js", "Node.js", "Express", "FastAPI",
-  "Supabase", "PostgreSQL", "MongoDB", "Docker", "GCP", "AWS",
+const groups = [
+  {
+    label: "Languages",
+    items: ["Python", "TypeScript", "JavaScript", "Java", "SQL", "C", "Bash"],
+  },
+  {
+    label: "AI & ML",
+    items: [
+      "LangChain",
+      "RAG",
+      "Embeddings",
+      "ChromaDB",
+      "Gemini 2.5",
+      "Vertex AI",
+      "Ollama",
+      "Llama 3.1",
+    ],
+  },
+  {
+    label: "Backend",
+    items: ["FastAPI", "FastMCP", "Node.js", "Express", "Flask"],
+  },
+  {
+    label: "Data & Infra",
+    items: [
+      "MongoDB",
+      "Supabase",
+      "PostgreSQL",
+      "MySQL",
+      "Redis",
+      "Docker",
+      "GCP",
+      "Jenkins",
+    ],
+  },
+  {
+    label: "Frontend & Testing",
+    items: ["React", "Next.js", "Tailwind CSS", "Vitest", "Playwright", "Zod"],
+  },
 ];
-
-const mid = Math.ceil(skills.length / 2);
-const rowA = skills.slice(0, mid);
-const rowB = skills.slice(mid);
-
-function Chip({ s }: { s: string }) {
-  return (
-    <span className="border border-outline-variant px-md py-sm mx-xs font-meta-technical text-[12px] text-on-surface-variant whitespace-nowrap hover:border-[color:var(--accent)] hover:text-primary transition-colors">
-      {s}
-    </span>
-  );
-}
 
 export default function Skills() {
   return (
@@ -27,17 +48,29 @@ export default function Skills() {
           03 // Stack
         </span>
       </div>
-      <div className="flex flex-col gap-sm">
-        <Marquee durationSec={30}>
-          {rowA.map((s) => (
-            <Chip key={s} s={s} />
-          ))}
-        </Marquee>
-        <Marquee durationSec={36}>
-          {rowB.map((s) => (
-            <Chip key={s} s={s} />
-          ))}
-        </Marquee>
+      <div className="flex flex-col">
+        {groups.map((g, i) => (
+          <div
+            key={g.label}
+            className={`flex flex-col md:flex-row md:items-start gap-sm md:gap-lg py-md ${
+              i < groups.length - 1 ? "border-b border-outline-variant" : ""
+            }`}
+          >
+            <span className="font-meta-technical text-meta-technical text-on-surface-variant md:w-44 shrink-0 md:pt-xs uppercase tracking-wider">
+              {g.label}
+            </span>
+            <div className="flex flex-wrap gap-sm">
+              {g.items.map((s) => (
+                <span
+                  key={s}
+                  className="border border-outline-variant px-sm py-xs font-meta-technical text-[12px] text-primary hover:border-[color:var(--accent)] hover:text-[color:var(--accent)] transition-colors"
+                >
+                  {s}
+                </span>
+              ))}
+            </div>
+          </div>
+        ))}
       </div>
     </section>
   );

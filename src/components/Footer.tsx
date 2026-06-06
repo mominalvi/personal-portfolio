@@ -2,6 +2,7 @@ const links = [
   { label: "GitHub", href: "https://github.com/mominalvi" },
   { label: "LinkedIn", href: "https://www.linkedin.com/in/momin-alvi/" },
   { label: "Email", href: "mailto:mominalvi30@gmail.com" },
+  { label: "Resume", href: "/resume.pdf" },
 ];
 
 export default function Footer() {
@@ -17,8 +18,16 @@ export default function Footer() {
               key={link.label}
               className="magnetic-link font-body-md text-body-md text-on-surface-variant hover:text-primary underline"
               href={link.href}
-              target={link.href.startsWith("http") ? "_blank" : undefined}
-              rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
+              target={
+                link.href.startsWith("http") || link.href.endsWith(".pdf")
+                  ? "_blank"
+                  : undefined
+              }
+              rel={
+                link.href.startsWith("http") || link.href.endsWith(".pdf")
+                  ? "noopener noreferrer"
+                  : undefined
+              }
             >
               {link.label}
             </a>

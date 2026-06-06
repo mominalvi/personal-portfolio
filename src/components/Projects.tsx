@@ -21,7 +21,7 @@ const secondary: {
     title: "Scholar Pups",
     description:
       "AI scholarship discovery and feedback platform for underrepresented students.",
-    tags: ["React", "Python", "FastAPI", "MongoDB"],
+    tags: ["FastAPI", "Next.js", "MongoDB", "LangChain"],
     // no public link yet — rendered as a non-interactive card
   },
 ];
