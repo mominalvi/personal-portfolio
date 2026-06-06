@@ -1,8 +1,7 @@
 const links = [
-  { label: "GitHub", href: "#" },
-  { label: "LinkedIn", href: "#" },
+  { label: "GitHub", href: "https://github.com/mominalvi" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/momin-alvi/" },
   { label: "Email", href: "mailto:mominalvi30@gmail.com" },
-  { label: "Resume", href: "#" },
 ];
 
 export default function Footer() {
