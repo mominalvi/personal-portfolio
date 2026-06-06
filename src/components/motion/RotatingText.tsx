@@ -18,6 +18,9 @@ export default function RotatingText({
   const [mounted, setMounted] = useState(false);
   const [i, setI] = useState(0);
 
+  // One-time mount flag so server + first client render match (hydration-safe);
+  // a single setState here does not cause the cascading renders the rule guards against.
+  // eslint-disable-next-line react-hooks/set-state-in-effect
   useEffect(() => setMounted(true), []);
 
   useEffect(() => {

@@ -7,6 +7,9 @@ export default function ThemeToggle() {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    // One-time mount sync to read the theme the pre-paint script already applied;
+    // intentional and does not trigger cascading renders.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true);
     setDark(document.documentElement.classList.contains("dark"));
   }, []);

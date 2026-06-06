@@ -18,6 +18,9 @@ export default function Reveal({
   // are identical (always the motion.div) — avoids a hydration mismatch that would
   // otherwise leave content stuck at opacity:0 for reduced-motion users.
   const [mounted, setMounted] = useState(false);
+  // One-time mount flag so server + first client render match (hydration-safe);
+  // a single setState here does not cause the cascading renders the rule guards against.
+  // eslint-disable-next-line react-hooks/set-state-in-effect
   useEffect(() => setMounted(true), []);
 
   if (mounted && reduce) return <div className={className}>{children}</div>;
