@@ -27,17 +27,19 @@ export default async function GitHubActivity() {
             <p className="font-meta-technical text-meta-technical text-on-surface-variant mb-md">
               {data.totalContributions} contributions in the last year
             </p>
-            <div className="overflow-x-auto">
-              <div
-                className="flex gap-[4px]"
-                style={{ width: "max-content" }}
-              >
+            <div className="w-full">
+              <div className="flex gap-[3px] w-full max-w-[760px]">
                 {data.weeks.map((week, w) => (
-                  <div key={w} className="flex flex-col gap-[4px]">
+                  <div
+                    key={w}
+                    className={`flex-col gap-[3px] flex-1 ${
+                      w < data.weeks.length - 20 ? "hidden md:flex" : "flex"
+                    }`}
+                  >
                     {week.contributionDays.map((day, d) => (
                       <div
                         key={d}
-                        className="w-[13px] h-[13px]"
+                        className="aspect-square w-full"
                         title={`${day.date}: ${day.contributionCount}`}
                         style={{
                           backgroundColor: `var(--contrib-${countToLevel(day.contributionCount)})`,
