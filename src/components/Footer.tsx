@@ -1,7 +1,7 @@
 const links = [
   { label: "GitHub", href: "https://github.com/mominalvi" },
   { label: "LinkedIn", href: "https://www.linkedin.com/in/momin-alvi/" },
-  { label: "Email", href: "mailto:mominalvi30@gmail.com" },
+  { label: "Email", href: "mailto:momin.alvi@queensu.ca" },
   { label: "Resume", href: "/resume.pdf" },
 ];
 
