@@ -223,8 +223,8 @@
   --accent: #6d5cff;
   --accent-2: #a855f7;
   /* aurora tuned for LIGHT mode: tinted, faint */
-  --aurora-1: rgba(109, 92, 255, 0.18);
-  --aurora-2: rgba(168, 85, 247, 0.14);
+  --aurora-1: rgba(109, 92, 255, 0.26);
+  --aurora-2: rgba(168, 85, 247, 0.2);
   --aurora-opacity: 0.7;
   --grid-line: rgba(17, 17, 17, 0.04);
 }
@@ -234,6 +234,52 @@
   --aurora-2: rgba(168, 85, 247, 0.18);
   --aurora-opacity: 0.5;
   --grid-line: rgba(255, 255, 255, 0.035);
+}
+
+.aurora-orb-1,
+.aurora-orb-2 {
+  position: absolute;
+  width: 520px;
+  height: 520px;
+  border-radius: 9999px;
+  filter: blur(120px);
+}
+.aurora-orb-1 {
+  top: -180px;
+  left: -120px;
+  background: var(--aurora-1);
+  animation: aurora-float-1 16s ease-in-out infinite;
+}
+.aurora-orb-2 {
+  bottom: -200px;
+  right: -140px;
+  background: var(--aurora-2);
+  animation: aurora-float-2 20s ease-in-out infinite;
+}
+
+/* On small screens, shrink + localize the blobs to the corners so they read as
+   faint corner ambience instead of washing the whole background purple. */
+@media (max-width: 768px) {
+  :root {
+    --aurora-opacity: 0.55;
+  }
+  .dark {
+    --aurora-opacity: 0.4;
+  }
+  .aurora-orb-1,
+  .aurora-orb-2 {
+    width: 280px;
+    height: 280px;
+    filter: blur(70px);
+  }
+  .aurora-orb-1 {
+    top: -110px;
+    left: -90px;
+  }
+  .aurora-orb-2 {
+    bottom: -120px;
+    right: -90px;
+  }
 }
 
 @keyframes aurora-float-1 {

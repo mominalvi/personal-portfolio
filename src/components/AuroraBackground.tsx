@@ -14,31 +14,9 @@ export default function AuroraBackground() {
           backgroundSize: "40px 40px",
         }}
       />
-      {/* aurora blobs */}
-      <div
-        className="aurora-blob absolute rounded-full"
-        style={{
-          width: 520,
-          height: 520,
-          top: -180,
-          left: -120,
-          background: "var(--aurora-1)",
-          filter: "blur(120px)",
-          animation: "aurora-float-1 16s ease-in-out infinite",
-        }}
-      />
-      <div
-        className="aurora-blob absolute rounded-full"
-        style={{
-          width: 520,
-          height: 520,
-          bottom: -200,
-          right: -140,
-          background: "var(--aurora-2)",
-          filter: "blur(120px)",
-          animation: "aurora-float-2 20s ease-in-out infinite",
-        }}
-      />
+      {/* aurora blobs — size/position controlled in globals.css (responsive) */}
+      <div className="aurora-blob aurora-orb-1" />
+      <div className="aurora-blob aurora-orb-2" />
     </div>
   );
 }
