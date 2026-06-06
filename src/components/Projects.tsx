@@ -1,3 +1,5 @@
+import RepoMenu from "@/components/RepoMenu";
+
 const featured = {
   title: "Coursify.ca",
   description:
@@ -9,6 +11,14 @@ const featured = {
   ],
   tags: ["Next.js", "TypeScript", "Supabase", "PostgreSQL"],
   href: "https://www.coursify.ca/",
+  repos: [
+    { label: "Web App", href: "https://github.com/amaanjaved1/Coursify-WebApp" },
+    { label: "RAG", href: "https://github.com/amaanjaved1/Coursify-RAG" },
+    {
+      label: "Web Scrapers",
+      href: "https://github.com/amaanjaved1/Coursify-Scrapers",
+    },
+  ],
 };
 
 const secondary: {
@@ -22,7 +32,7 @@ const secondary: {
     description:
       "AI scholarship discovery and feedback platform for underrepresented students.",
     tags: ["FastAPI", "Next.js", "MongoDB", "LangChain"],
-    // no public link yet — rendered as a non-interactive card
+    href: "https://github.com/connor-leung/scholar-pups",
   },
 ];
 
@@ -40,11 +50,8 @@ export default function Projects() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-md">
         {/* Featured — spans two rows */}
-        <a
-          href={featured.href}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="tile-lift shimmer group relative overflow-hidden border-architectural p-lg md:row-span-2 flex flex-col"
+        <div
+          className="shimmer relative border-architectural p-lg md:row-span-2 flex flex-col"
           style={{
             background:
               "linear-gradient(150deg, rgba(109,92,255,0.12), rgba(168,85,247,0.06))",
@@ -53,13 +60,13 @@ export default function Projects() {
           <span className="font-meta-technical text-[11px] text-on-surface-variant">
             Featured
           </span>
-          <h3 className="font-h3 text-h3 text-primary mt-sm mb-sm group-hover:text-[color:var(--accent)] transition-colors">
+          <h3 className="font-h3 text-h3 text-primary mt-sm mb-sm">
             {featured.title}
           </h3>
           <p className="font-body-md text-body-md text-on-surface-variant mb-md">
             {featured.description}
           </p>
-          <ul className="flex flex-col gap-xs mb-lg">
+          <ul className="flex flex-col gap-xs mb-md">
             {featured.highlights.map((h) => (
               <li
                 key={h}
@@ -70,7 +77,7 @@ export default function Projects() {
               </li>
             ))}
           </ul>
-          <div className="flex gap-xs flex-wrap mt-auto">
+          <div className="flex gap-xs flex-wrap mb-lg">
             {featured.tags.map((t) => (
               <span
                 key={t}
@@ -80,7 +87,24 @@ export default function Projects() {
               </span>
             ))}
           </div>
-        </a>
+          <div className="flex gap-sm flex-wrap mt-auto">
+            <a
+              href={featured.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-accent px-md py-sm font-label-caps text-label-caps text-white inline-flex items-center gap-sm"
+            >
+              <span
+                className="material-symbols-outlined"
+                style={{ fontSize: "16px" }}
+              >
+                language
+              </span>
+              Live website
+            </a>
+            <RepoMenu repos={featured.repos} />
+          </div>
+        </div>
 
         {/* Secondary cards — interactive only when a link exists */}
         {secondary.map((p) => {
