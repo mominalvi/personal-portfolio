@@ -216,3 +216,89 @@
 .magnetic-link:hover {
   transform: translateY(-2px);
 }
+
+/* ---- v4 Editorial Aurora ---- */
+:root {
+  --accent: #6d5cff;
+  --accent-2: #a855f7;
+  /* aurora tuned for LIGHT mode: tinted, faint */
+  --aurora-1: rgba(109, 92, 255, 0.18);
+  --aurora-2: rgba(168, 85, 247, 0.14);
+  --aurora-opacity: 0.7;
+  --grid-line: rgba(17, 17, 17, 0.04);
+}
+
+.dark {
+  --aurora-1: rgba(109, 92, 255, 0.22);
+  --aurora-2: rgba(168, 85, 247, 0.18);
+  --aurora-opacity: 0.5;
+  --grid-line: rgba(255, 255, 255, 0.035);
+}
+
+@keyframes aurora-float-1 {
+  50% { transform: translate(40px, -30px) scale(1.12); }
+}
+@keyframes aurora-float-2 {
+  50% { transform: translate(-35px, 25px) scale(1.1); }
+}
+@keyframes name-shine {
+  to { background-position: 200% center; }
+}
+@keyframes shimmer-sweep {
+  to { background-position: -200% 0; }
+}
+@keyframes marquee-x {
+  to { transform: translateX(-50%); }
+}
+
+.name-shine {
+  background: linear-gradient(90deg, var(--color-primary), var(--accent), var(--color-primary));
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: name-shine 5s linear infinite;
+}
+
+.shimmer::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(110deg, transparent 38%, rgba(255, 255, 255, 0.10) 50%, transparent 62%);
+  background-size: 200% 100%;
+  animation: shimmer-sweep 3.4s linear infinite;
+}
+
+.tile-lift {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s;
+}
+.tile-lift:hover {
+  transform: translateY(-5px);
+}
+
+.btn-accent {
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  box-shadow: 0 0 22px rgba(109, 92, 255, 0.35);
+  transition: box-shadow 0.25s, transform 0.25s;
+}
+.btn-accent:hover {
+  box-shadow: 0 8px 26px rgba(109, 92, 255, 0.45);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .name-shine {
+    animation: none;
+    -webkit-text-fill-color: currentColor;
+  }
+  .shimmer::after,
+  .aurora-blob {
+    animation: none !important;
+  }
+  .marquee-run {
+    animation: none !important;
+  }
+  .animate-fade-in-up {
+    animation: none !important;
+  }
+}
