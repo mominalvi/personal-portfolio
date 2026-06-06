@@ -14,9 +14,9 @@ export default function IndexModule() {
       style={{ animationDelay: "450ms" }}
     >
       <div className="flex justify-between items-end border-b-architectural pb-sm mb-md">
-        <h2 className="font-h3 text-h3 text-primary">Beyond Code</h2>
+        <h2 className="font-h3 text-h3 text-primary">Interests</h2>
         <span className="font-meta-technical text-meta-technical text-on-surface-variant">
-          05 // Beyond
+          05 // Interests
         </span>
       </div>
       <div className="flex flex-col border-architectural bg-surface-container-lowest shadow-sm">
