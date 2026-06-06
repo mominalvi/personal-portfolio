@@ -7,16 +7,21 @@ const featured = {
     "Integrated course registry data, filters, and student-facing UI.",
   ],
   tags: ["Next.js", "TypeScript", "Supabase", "PostgreSQL"],
-  href: "#",
+  href: "https://www.coursify.ca/",
 };
 
-const secondary = [
+const secondary: {
+  title: string;
+  description: string;
+  tags: string[];
+  href?: string;
+}[] = [
   {
     title: "Scholar Pups",
     description:
       "AI scholarship discovery and feedback platform for underrepresented students.",
     tags: ["React", "Python", "FastAPI", "MongoDB"],
-    href: "#",
+    // no public link yet — rendered as a non-interactive card
   },
 ];
 
@@ -36,6 +41,8 @@ export default function Projects() {
         {/* Featured — spans two rows */}
         <a
           href={featured.href}
+          target="_blank"
+          rel="noopener noreferrer"
           className="tile-lift shimmer group relative overflow-hidden border-architectural p-lg md:row-span-2 flex flex-col"
           style={{
             background:
@@ -74,36 +81,58 @@ export default function Projects() {
           </div>
         </a>
 
-        {/* Secondary cards */}
-        {secondary.map((p) => (
-          <a
-            key={p.title}
-            href={p.href}
-            className="tile-lift group border-architectural p-md flex flex-col bg-surface-container-lowest"
-          >
-            <div className="flex items-center justify-between mb-sm">
-              <h3 className="font-body-md text-body-md font-bold text-primary group-hover:text-[color:var(--accent)] transition-colors">
-                {p.title}
-              </h3>
-              <span className="material-symbols-outlined text-[16px] text-outline group-hover:text-[color:var(--accent)] transition-colors">
-                arrow_forward
-              </span>
-            </div>
-            <p className="font-meta-technical text-meta-technical text-on-surface-variant mb-md">
-              {p.description}
-            </p>
-            <div className="flex gap-xs flex-wrap mt-auto">
-              {p.tags.map((t) => (
-                <span
-                  key={t}
-                  className="bg-surface-container px-sm py-xs font-meta-technical text-[10px] text-primary"
+        {/* Secondary cards — interactive only when a link exists */}
+        {secondary.map((p) => {
+          const inner = (
+            <>
+              <div className="flex items-center justify-between mb-sm">
+                <h3
+                  className={`font-body-md text-body-md font-bold text-primary transition-colors ${
+                    p.href ? "group-hover:text-[color:var(--accent)]" : ""
+                  }`}
                 >
-                  {t}
-                </span>
-              ))}
+                  {p.title}
+                </h3>
+                {p.href && (
+                  <span className="material-symbols-outlined text-[16px] text-outline group-hover:text-[color:var(--accent)] transition-colors">
+                    arrow_forward
+                  </span>
+                )}
+              </div>
+              <p className="font-meta-technical text-meta-technical text-on-surface-variant mb-md">
+                {p.description}
+              </p>
+              <div className="flex gap-xs flex-wrap mt-auto">
+                {p.tags.map((t) => (
+                  <span
+                    key={t}
+                    className="bg-surface-container px-sm py-xs font-meta-technical text-[10px] text-primary"
+                  >
+                    {t}
+                  </span>
+                ))}
+              </div>
+            </>
+          );
+          return p.href ? (
+            <a
+              key={p.title}
+              href={p.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="tile-lift group border-architectural p-md flex flex-col bg-surface-container-lowest"
+            >
+              {inner}
+            </a>
+          ) : (
+            <div
+              key={p.title}
+              className="group border-architectural p-md flex flex-col bg-surface-container-lowest"
+            >
+              {inner}
             </div>
-          </a>
-        ))}
+          );
+        })}
 
         {/* More on GitHub — fills the grid, sends to profile */}
         <a
