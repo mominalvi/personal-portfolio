@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion } from "motion/react";
+import { useEffect, useState } from "react";
 import type { ReactNode } from "react";
 
 export default function Reveal({
@@ -13,7 +14,14 @@ export default function Reveal({
   className?: string;
 }) {
   const reduce = useReducedMotion();
-  if (reduce) return <div className={className}>{children}</div>;
+  // Gate the reduced-motion branch behind mount so server + first client render
+  // are identical (always the motion.div) — avoids a hydration mismatch that would
+  // otherwise leave content stuck at opacity:0 for reduced-motion users.
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+
+  if (mounted && reduce) return <div className={className}>{children}</div>;
+
   return (
     <motion.div
       className={className}

@@ -13,18 +13,25 @@ export default function RotatingText({
   interval?: number;
 }) {
   const reduce = useReducedMotion();
+  // Render the static word until after mount so server + first client render match
+  // (avoids a hydration mismatch from branching JSX structure on useReducedMotion).
+  const [mounted, setMounted] = useState(false);
   const [i, setI] = useState(0);
 
+  useEffect(() => setMounted(true), []);
+
   useEffect(() => {
-    if (reduce) return;
+    if (!mounted || reduce) return;
     const id = setInterval(
       () => setI((p) => (p + 1) % words.length),
       interval
     );
     return () => clearInterval(id);
-  }, [reduce, words.length, interval]);
+  }, [mounted, reduce, words.length, interval]);
 
-  if (reduce) return <span className={className}>{words[0]}</span>;
+  if (!mounted || reduce) {
+    return <span className={className}>{words[0]}</span>;
+  }
 
   return (
     <span
