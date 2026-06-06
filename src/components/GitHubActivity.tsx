@@ -29,15 +29,15 @@ export default async function GitHubActivity() {
             </p>
             <div className="overflow-x-auto">
               <div
-                className="flex gap-[3px]"
+                className="flex gap-[4px]"
                 style={{ width: "max-content" }}
               >
                 {data.weeks.map((week, w) => (
-                  <div key={w} className="flex flex-col gap-[3px]">
+                  <div key={w} className="flex flex-col gap-[4px]">
                     {week.contributionDays.map((day, d) => (
                       <div
                         key={d}
-                        className="w-[10px] h-[10px]"
+                        className="w-[13px] h-[13px]"
                         title={`${day.date}: ${day.contributionCount}`}
                         style={{
                           backgroundColor: `var(--contrib-${countToLevel(day.contributionCount)})`,
