@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Space_Grotesk, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import AuroraBackground from "@/components/AuroraBackground";
+import { Analytics } from "@vercel/analytics/next";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -77,6 +78,7 @@ export default function RootLayout({
       <body className="bg-bone text-primary antialiased font-body-md min-h-screen flex flex-col">
         <AuroraBackground />
         {children}
+        <Analytics />
       </body>
     </html>
   );
