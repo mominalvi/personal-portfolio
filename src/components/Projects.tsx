@@ -1,10 +1,11 @@
 const featured = {
   title: "Coursify.ca",
-  description: "Course review and planning platform for Queen's students.",
+  description:
+    "A course insights platform for Queen's University, with data scraped from Reddit & RateMyProfessors and a RAG-powered AI assistant.",
   highlights: [
-    "Built course search and review workflows for Queen's course discovery.",
-    "Designed Plan Courses flow for saving offerings and future schedule generation.",
-    "Integrated course registry data, filters, and student-facing UI.",
+    "Aggregates course and professor data scraped from Reddit and RateMyProfessors.",
+    "RAG-powered AI assistant answers student questions about courses and profs.",
+    "Search, filters, and a student-facing course discovery UI.",
   ],
   tags: ["Next.js", "TypeScript", "Supabase", "PostgreSQL"],
   href: "https://www.coursify.ca/",

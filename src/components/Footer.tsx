@@ -9,7 +9,7 @@ export default function Footer() {
     <footer className="w-full border-t border-outline-variant mt-auto bg-background" id="contact">
       <div className="max-w-container-max mx-auto px-lg md:px-xl py-xl flex flex-col md:flex-row justify-between items-center">
         <div className="font-label-caps text-label-caps text-primary mb-md md:mb-0">
-          © 2026 Momin Alvi. Built for high-density clarity.
+          © 2026 Momin Alvi
         </div>
         <div className="flex gap-lg">
           {links.map((link) => (

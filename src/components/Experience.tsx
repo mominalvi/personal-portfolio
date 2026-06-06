@@ -1,6 +1,6 @@
 const roles = [
   {
-    org: "Ontario Teachers'",
+    org: "Ontario Teachers' (OTPP)",
     title: "Software Engineering Intern",
     location: "Toronto, ON",
     period: "May 2025 — Present",

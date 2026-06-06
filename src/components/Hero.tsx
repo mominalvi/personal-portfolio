@@ -19,14 +19,17 @@ export default function Hero() {
       <p className="font-h3 text-h3 text-on-surface-variant mb-lg flex items-baseline gap-sm flex-wrap">
         I build{" "}
         <RotatingText
-          words={["AI systems", "product tools", "web experiences"]}
+          words={[
+            "AI systems",
+            "backend services",
+            "data pipelines",
+            "RAG applications",
+          ]}
           className="font-bold text-[color:var(--accent)]"
         />
       </p>
       <p className="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mb-lg">
-        CS student at Queen&apos;s and Software Engineering Intern at OTPP. I build
-        practical AI systems, product tools, and clean web experiences. Outside of
-        work, I&apos;m usually training or exploring new product ideas.
+        CS student at Queen&apos;s &amp; Software Engineering Intern at OTPP.
       </p>
       <div className="flex gap-md flex-wrap">
         <MagneticButton
