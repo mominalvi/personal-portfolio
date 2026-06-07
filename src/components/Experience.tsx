@@ -44,7 +44,7 @@ export default function Experience() {
             key={`${role.org}-${role.title}`}
             className="group flex flex-col md:flex-row md:items-center justify-between p-md border-b border-outline-variant border-l-2 border-l-transparent hover:border-l-[color:var(--accent)] hover:bg-surface-container transition-all duration-200 cursor-default"
           >
-            <div className="flex items-center gap-md flex-wrap">
+            <div className="flex flex-col md:flex-row md:items-center gap-xs md:gap-md">
               <span className="text-sm font-bold text-primary group-hover:text-[color:var(--accent)] group-hover:translate-x-1 transition-all">
                 {role.org}
               </span>
