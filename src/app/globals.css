@@ -280,37 +280,6 @@ html {
 .dark[data-mode="pipelines"] { --aurora-1: rgba(8, 145, 178, 0.22);  --aurora-2: rgba(34, 211, 238, 0.18); }
 .dark[data-mode="rag"]       { --aurora-1: rgba(157, 78, 221, 0.22); --aurora-2: rgba(199, 125, 255, 0.18); }
 
-/* Pin button for the rotating hero word — must read as text, not a button.
-   Hover = soft accent glow; underline appears only while pinned. */
-.mode-pin {
-  appearance: none;
-  background: none;
-  border: 0;
-  padding: 0;
-  margin: 0;
-  /* longhand font resets only — the `font`/`color` shorthands would override
-     the font-bold and accent-color utilities on the element */
-  font-family: inherit;
-  font-size: inherit;
-  line-height: inherit;
-  letter-spacing: inherit;
-  text-align: inherit;
-  cursor: pointer;
-  transition: text-shadow 0.3s ease;
-}
-.mode-pin:hover {
-  text-shadow: 0 0 18px color-mix(in srgb, var(--accent) 55%, transparent);
-}
-.mode-pin[aria-pressed="true"] {
-  text-decoration: underline;
-  text-decoration-thickness: 2px;
-  text-underline-offset: 6px;
-}
-.mode-pin:focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: 4px;
-}
-
 .aurora-orb-1,
 .aurora-orb-2 {
   position: absolute;
