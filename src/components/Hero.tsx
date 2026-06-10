@@ -26,6 +26,8 @@ export default function Hero() {
             "data pipelines",
             "RAG applications",
           ]}
+          modes={["ai", "products", "backend", "pipelines", "rag"]}
+          interval={3400}
           className="font-bold text-[color:var(--accent)]"
         />
       </p>

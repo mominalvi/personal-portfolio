@@ -3,6 +3,35 @@
 /* Class-based dark mode: .dark on <html> activates dark: utilities */
 @custom-variant dark (&:where(.dark, .dark *));
 
+/* Build Modes: registering these as <color> lets the var values themselves
+   interpolate, so gradient consumers (.name-shine, .btn-accent) animate too.
+   Unsupported browsers fall back to an instant swap. */
+@property --accent {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #6d5cff;
+}
+@property --accent-2 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #a855f7;
+}
+@property --aurora-1 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: rgba(109, 92, 255, 0.26);
+}
+@property --aurora-2 {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: rgba(168, 85, 247, 0.2);
+}
+
+html {
+  transition: --accent 1.2s ease, --accent-2 1.2s ease,
+    --aurora-1 1.2s ease, --aurora-2 1.2s ease;
+}
+
 @theme {
   /* Colors — light mode defaults */
   --color-primary: #000000;
@@ -236,6 +265,48 @@
   --grid-line: rgba(255, 255, 255, 0.035);
 }
 
+/* Build Modes — set via data-mode on <html> by the hero's RotatingText.
+   Palettes stay in the indigo → violet → cyan family (subtle intensity);
+   the --contrib-* heatmap scale intentionally stays fixed across modes. */
+[data-mode="ai"]        { --accent: #6d5cff; --accent-2: #a855f7; --aurora-1: rgba(109, 92, 255, 0.26); --aurora-2: rgba(168, 85, 247, 0.2); }
+[data-mode="products"]  { --accent: #8b5cf6; --accent-2: #c084fc; --aurora-1: rgba(139, 92, 246, 0.26); --aurora-2: rgba(192, 132, 252, 0.2); }
+[data-mode="backend"]   { --accent: #4c6ef5; --accent-2: #6d5cff; --aurora-1: rgba(76, 110, 245, 0.26); --aurora-2: rgba(109, 92, 255, 0.2); }
+[data-mode="pipelines"] { --accent: #0891b2; --accent-2: #22d3ee; --aurora-1: rgba(8, 145, 178, 0.26);  --aurora-2: rgba(34, 211, 238, 0.2); }
+[data-mode="rag"]       { --accent: #9d4edd; --accent-2: #c77dff; --aurora-1: rgba(157, 78, 221, 0.26); --aurora-2: rgba(199, 125, 255, 0.2); }
+
+.dark[data-mode="ai"]        { --aurora-1: rgba(109, 92, 255, 0.22); --aurora-2: rgba(168, 85, 247, 0.18); }
+.dark[data-mode="products"]  { --aurora-1: rgba(139, 92, 246, 0.22); --aurora-2: rgba(192, 132, 252, 0.18); }
+.dark[data-mode="backend"]   { --aurora-1: rgba(76, 110, 245, 0.22); --aurora-2: rgba(109, 92, 255, 0.18); }
+.dark[data-mode="pipelines"] { --aurora-1: rgba(8, 145, 178, 0.22);  --aurora-2: rgba(34, 211, 238, 0.18); }
+.dark[data-mode="rag"]       { --aurora-1: rgba(157, 78, 221, 0.22); --aurora-2: rgba(199, 125, 255, 0.18); }
+
+/* Pin button for the rotating hero word — must read as text, not a button.
+   Hover = soft accent glow; underline appears only while pinned. */
+.mode-pin {
+  appearance: none;
+  background: none;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  color: inherit;
+  text-align: inherit;
+  cursor: pointer;
+  transition: text-shadow 0.3s ease;
+}
+.mode-pin:hover {
+  text-shadow: 0 0 18px color-mix(in srgb, var(--accent) 55%, transparent);
+}
+.mode-pin[aria-pressed="true"] {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 6px;
+}
+.mode-pin:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+
 .aurora-orb-1,
 .aurora-orb-2 {
   position: absolute;
@@ -334,6 +405,9 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  html {
+    transition: none !important;
+  }
   .name-shine {
     animation: none;
     -webkit-text-fill-color: currentColor;
