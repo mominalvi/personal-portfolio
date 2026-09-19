@@ -70,6 +70,7 @@ export default function RootLayout({
             __html: `(function(){try{var s=localStorage.getItem('theme');var p=window.matchMedia('(prefers-color-scheme: dark)').matches;if(s==='dark'||(s===null&&p)){document.documentElement.classList.add('dark');}}catch(e){}})();`,
           }}
         />
+        {/* eslint-disable-next-line @next/next/no-page-custom-font -- The App Router root layout loads this icon font for every page. */}
         <link
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
           rel="stylesheet"
