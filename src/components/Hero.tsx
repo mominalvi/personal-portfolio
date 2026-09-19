@@ -32,7 +32,7 @@ export default function Hero() {
         />
       </p>
       <p className="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mb-lg">
-        CS student at Queen&apos;s &amp; Software Engineering Intern at OTPP.
+        CS student at Queen&apos;s &amp; Software Engineer Intern at Shopify.
       </p>
       <div className="flex gap-md flex-wrap">
         <MagneticButton

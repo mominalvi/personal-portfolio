@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://mominalvi.com"),
   title: "Momin Alvi — Software Engineer",
   description:
-    "CS student at Queen's and Software Engineering Intern at OTPP. Builder of AI systems, product tools, and clean web experiences.",
+    "CS student at Queen's and Software Engineer Intern at Shopify. Builder of AI systems, product tools, and clean web experiences.",
   openGraph: {
     title: "Momin Alvi — Software Engineer",
     description:

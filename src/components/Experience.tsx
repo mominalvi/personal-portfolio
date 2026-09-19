@@ -1,9 +1,15 @@
 const roles = [
   {
-    org: "Ontario Teachers' Pension Plan",
-    title: "Software Engineering Intern",
+    org: "Shopify",
+    title: "Software Engineer Intern",
     location: "Toronto, ON",
-    period: "May 2025 — Present",
+    period: "Sep 2026 — Present",
+  },
+  {
+    org: "Ontario Teachers' Pension Plan",
+    title: "Software Engineer Intern",
+    location: "Toronto, ON",
+    period: "May 2025 — Aug 2026",
   },
   {
     org: "Kaniq",
@@ -51,7 +57,7 @@ export default function Experience() {
               <span className="text-sm text-on-surface-variant">{role.title}</span>
             </div>
             <div className="font-meta-technical text-meta-technical text-outline mt-sm md:mt-0 md:text-right shrink-0">
-              {role.location} • {role.period}
+              {role.location && `${role.location} • `}{role.period}
             </div>
           </div>
         ))}
